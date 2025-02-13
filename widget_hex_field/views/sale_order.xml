@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="sale_order_inherit_form" model="ir.ui.view">
+      <field name="name">sale.order.inherit.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+          <field name="hex_field" widget="hex" readonly="state in ['sale', 'cancel']"/>
+        </xpath>
+        <xpath expr="//field[@name='payment_term_id']" position="attributes">
+          <attribute name="readonly">state in ['sale', 'cancel']</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

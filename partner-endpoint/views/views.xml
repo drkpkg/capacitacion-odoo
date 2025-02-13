@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="partner-endpoint.list">
+      <field name="name">partner-endpoint list</field>
+      <field name="model">partner-endpoint.partner-endpoint</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="partner-endpoint.action_window">
+      <field name="name">partner-endpoint window</field>
+      <field name="res_model">partner-endpoint.partner-endpoint</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="partner-endpoint.action_server">
+      <field name="name">partner-endpoint server</field>
+      <field name="model_id" ref="model_partner-endpoint_partner-endpoint"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="partner-endpoint" id="partner-endpoint.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="partner-endpoint.menu_1" parent="partner-endpoint.menu_root"/>
+    <menuitem name="Menu 2" id="partner-endpoint.menu_2" parent="partner-endpoint.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="partner-endpoint.menu_1_list" parent="partner-endpoint.menu_1"
+              action="partner-endpoint.action_window"/>
+    <menuitem name="Server to list" id="partner-endpoint" parent="partner-endpoint.menu_2"
+              action="partner-endpoint.action_server"/>
+-->
+  </data>
+</odoo>

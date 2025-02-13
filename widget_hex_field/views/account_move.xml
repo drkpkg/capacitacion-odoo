@@ -1,0 +1,12 @@
+<odoo>
+    <record id="account_move_inherit_form" model="ir.ui.view">
+        <field name="name">account.move.inherit.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='header_right_group']" position="inside">
+                <field name="hex_field" widget="hex" readonly="state in ['posted', 'cancel']"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
