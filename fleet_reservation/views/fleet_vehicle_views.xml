@@ -1,0 +1,12 @@
+<odoo>
+    <record id="fleet_vehicle_inherit_form_view" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location']" position="after">
+                <field name="can_be_rented" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

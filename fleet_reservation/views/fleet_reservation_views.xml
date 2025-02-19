@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista de formulario -->
+    <data>
+        <record id="view_fleet_reservation_form" model="ir.ui.view">
+            <field name="name">fleet.reservation.form</field>
+            <field name="model">fleet.reservation</field>
+            <field name="arch" type="xml">
+                <form string="Fleet Reservation">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="vehicle_id" domain="[('can_be_rented', '=', True)]" />
+                            <field name="customer_id" domain="[('is_company', '=', False)]" />
+                            <field name="start_date" />
+                            <field name="end_date" />
+                            <field name="state" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol (lista) -->
+        <record id="view_fleet_reservation_tree" model="ir.ui.view">
+            <field name="name">fleet.reservation.tree</field>
+            <field name="model">fleet.reservation</field>
+            <field name="arch" type="xml">
+                <tree string="Fleet Reservations">
+                    <field name="name" />
+                    <field name="vehicle_id" />
+                    <field name="customer_id" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción para abrir la vista de reservas -->
+        <record id="action_fleet_reservation" model="ir.actions.act_window">
+            <field name="name">Fleet Reservations</field>
+            <field name="res_model">fleet.reservation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Menú principal -->
+        <menuitem id="menu_fleet_reservation_root" name="Fleet Reservations" sequence="10" />
+
+        <!-- Submenú -->
+        <menuitem id="menu_fleet_reservation_main" name="Reservations"
+            parent="menu_fleet_reservation_root" sequence="20" />
+
+        <!-- Menú para gestionar reservas -->
+        <menuitem id="menu_fleet_reservation" name="Manage Reservations"
+            parent="menu_fleet_reservation_main" action="action_fleet_reservation" sequence="30" />
+
+
+    </data>
+</odoo>
